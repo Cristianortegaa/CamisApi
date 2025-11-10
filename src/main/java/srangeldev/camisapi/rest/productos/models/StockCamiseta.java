@@ -1,4 +1,4 @@
-package srangeldev.camisapi.rest.stockTalla;
+package srangeldev.camisapi.rest.productos.models;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -6,16 +6,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import srangeldev.camisapi.rest.productos.models.Camisetas;
 
-public class StockTalla {
+public class StockCamiseta {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @NotNull(message = "La camiseta asociada no puede ser nula")
-    private Camisetas camiseta;
+    private Camiseta camiseta;
 
     @NotNull(message = "La talla es obligatoria")
     private Tallas tallas;
